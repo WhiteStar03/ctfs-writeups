@@ -1,14 +1,10 @@
 # Biteme: 
 
 ![Contest Date: 12.03.2022](https://img.shields.io/badge/Contest%20Date-12.10.2022-lightgrey.svg)
+
 ## Description
 
-Tryhackme Medium Dificulty Room
-
-
-## Attached Files
-
-- Lorem ipsum
+### Tryhackme Medium Dificulty Room
 
 ## Summary
 
@@ -123,16 +119,19 @@ for i in range(9999,5000,-1):
 After getting a valid code, we now have lfi, using this to get the /ssh/id_rsa file of jason user which has a passphrase.
 Using ss2john, and then using john with rockyou.txt we get the passphrase.
 
+## Privesc 
 
+By running `sudo -l` as user `jason` , we can impersonate user `fred` , which can also restart the `fail2ban` service on the machine.
 
-
-
-## Flag
-
+Running 
+```bash
+find / -user fred 2>/dev/null
 ```
+we find a file writable by fred, `/etc/fail2ban/action.d/iptables-multiport.conf`
 
-```
+Using this blog regarding <a href="https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/">fail2ban privesc</a>.
+After replacing the `banaction` with our reverse shell, we have to restart the service, which user fred can do by running `sudo /bin/systemctl restart fail2ban`
+all we have to do now is to trigger the ban action. After reading the config file `/etc/fail2ban/jail.local` we see that it is triggered after 3 retries.
 
-## Detailed Solution
+Now what's left for us to do is to try to log in using ssh 3 times, after that we get the shell as root.
 
-Lorem ipsum
