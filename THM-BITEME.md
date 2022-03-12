@@ -127,7 +127,7 @@ Running
 ```bash
 find / -user fred 2>/dev/null
 ```
-we find a file writable by fred, `/etc/fail2ban/action.d/iptables-multiport.conf`
+we find a strange file writable by fred, `/etc/fail2ban/action.d/iptables-multiport.conf`
 
 Using this blog regarding <a href="https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/">fail2ban privesc</a>.
 
