@@ -4,7 +4,7 @@
 
 ## Description
 
-### Tryhackme Medium Dificulty Room
+### Tryhackme Medium Room
 
 ## Summary
 
