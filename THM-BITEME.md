@@ -1,6 +1,6 @@
 # Biteme: 
 
-![Release Date: 12.03.2022](https://img.shields.io/badge/Contest%20Date-12.10.2022-lightgrey.svg)
+![Release Date: 12.03.2022](https://img.shields.io/badge/Release%20Date-12.10.2022-lightgrey.svg)
 
 ## Description
 
